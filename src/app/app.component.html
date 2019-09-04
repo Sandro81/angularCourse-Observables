@@ -39,6 +39,11 @@
             console.log(count);
             });
             }</code></p>
+          <p class="card-text"> To prevent memomory leaks, we need to destroy the subscription. <br>
+            To do that we need to store the previous subscription <code>private firstObsSubscription: Subscription;</code><br>
+          and than drestroy that using -> <code> ngOnDestroy(): void &#123;
+              this.firstObsSubscription.unsubscribe();
+              }</code></p>
         </div>
       </div>
       <!--
