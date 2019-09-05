@@ -31,7 +31,7 @@
       <br>
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Lesson 170. Getting Closer to the Core of Observables</h5>
+          <h5 class="card-title">Lesson 170. Getting Closer to the Core of Observables - prevent memory leaks</h5>
           <p class="card-text"> To build our own observable here in ngOnInit and for that, we can import something from that RxJS package. </p>
           <p class="card-text">First -> <code>import &#123; interval } from 'rxjs';</code></p>
           <p>The following code create an observable that will count each 1000 second a number -> <code>ngOnInit() &#123;
@@ -39,11 +39,20 @@
             console.log(count);
             });
             }</code></p>
-          <p class="card-text"> To prevent memomory leaks, we need to destroy the subscription. <br>
+          <p class="card-text"> To prevent memory leaks, we need to destroy the subscription. <br>
             To do that we need to store the previous subscription <code>private firstObsSubscription: Subscription;</code><br>
           and than drestroy that using -> <code> ngOnDestroy(): void &#123;
               this.firstObsSubscription.unsubscribe();
               }</code></p>
+        </div>
+      </div>
+
+      <br>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Lesson 171. Building a Custom Observable </h5>
+          <p class="card-text"> - </p>
+          <p class="card-text"> <code>routerLink="/servers" </code></p>
         </div>
       </div>
       <!--
