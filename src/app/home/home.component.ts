@@ -28,6 +28,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         // We can call the next method to emit a new value.
         observer.next(count);
         count++;
+        if (count === 2) {
+          // well then we simply call observer complete and there, you don't need to pass any arguments.
+          observer.complete();
+          // when you call complete, the observable will really come to a halt
+        }
         if(count > 3) {
           // To emit the error message, we need to call the .error method
           observer.error(new Error('Count is greater 3!'));
@@ -40,6 +45,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     }, error => {
       // to handler the error we need to pass another argument to subscribe
       console.log(error);
+    }, () => {
+      // Now if you want to react to that completion, you can add a third arguments to the subscribe method and that is your completion handler function. It's a function that gets no arguments because completing doesn't pass any arguments and it's simply a function where you can do some cleanup work or whatever you need to do and here I'll just log completed. Also important, you don't need to unsubscribe
+      console.log('Completed!');
     });
   }
 
