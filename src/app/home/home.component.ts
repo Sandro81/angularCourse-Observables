@@ -25,10 +25,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       // Now our job here is to tell the observer about new data, about an error or about the observable being completed. Here, we're not responsible for listening because the observer is the listener, here we get that listening part as an argument and we need to tell it once we're done, once new data is there and so on.
       let count = 0;
       setInterval( () => {
-        //We can call the next method to emit a new value.
+        // We can call the next method to emit a new value.
         observer.next(count);
         count++;
         if(count > 3) {
+          // To emit the error message, we need to call the .error method
           observer.error(new Error('Count is greater 3!'));
         }
       }, 1000);
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.firstObsSubscription = customIntervalObservable.subscribe(data => {
       console.log(data);
     }, error => {
+      // to handler the error we need to pass another argument to subscribe
       console.log(error);
     });
   }
