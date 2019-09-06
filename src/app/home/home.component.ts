@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         observer.next(count);
         count++;
         if(count > 3) {
+          // when an error is fired, we can called the error method to pass the relative error data
           observer.error(new Error('Count is greater 3!'));
         }
       }, 1000);
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.firstObsSubscription = customIntervalObservable.subscribe(data => {
       console.log(data);
     }, error => {
+      // to handler the error we need to pass another argument to subscribe
       console.log(error.message);
     });
   }
