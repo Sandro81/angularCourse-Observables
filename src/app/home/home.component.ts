@@ -28,11 +28,16 @@ export class HomeComponent implements OnInit, OnDestroy {
         //We can call the next method to emit a new value.
         observer.next(count);
         count++;
+        if(count > 3) {
+          observer.error(new Error('Count is greater 3!'));
+        }
       }, 1000);
     });
     // An Observable instance begins publishing values only when someone subscribes to it. You subscribe by calling the subscribe() method of the instance, passing an observer object to receive the notifications.
     this.firstObsSubscription = customIntervalObservable.subscribe(data => {
       console.log(data);
+    }, error => {
+      console.log(error.message);
     });
   }
 
