@@ -53,18 +53,18 @@
           <h5 class="card-title">Lesson 171. Building a Custom Observable </h5>
           <p class="card-text"> Store the Custom Observable into a constant. Instance a new Observable object to create an Observable. Then we need to pass into an anonymous arrow function the observer argument. The observer in the end is a part that is interested in being informed about new data, about errors or about the observable being completed.<br>
             <code>const customIntervalObservable = new Observable(observer => &#123;<br></code>
-            Now our job here is to tell the observer about new data, about an error or about the observable being completed. Here, we're not responsible for listening because the observer is the listener, here we get that listening part as an argument and we need to tell it once we're done, once new data is there and so on.
+            -> Now our job here is to tell the observer about new data, about an error or about the observable being completed. Here, we're not responsible for listening because the observer is the listener, here we get that listening part as an argument and we need to tell it once we're done, once new data is there and so on.
             <br>
             <code>
             let count = 0;<br>
               setInterval( () => &#123;<br></code>
-             We can call the next method to emit a new value.<br>
+            -> We can call the next method to emit a new value.<br>
           <code>
             observer.next(count);<br>
             count++;<br>
             }, 1000);<br>
             });<br> </code>
-            An Observable instance begins publishing values only when someone subscribes to it. You subscribe by calling the <a href="https://angular.io/guide/observables#subscribing" target="_blank">subscribe()</a>  method of the instance, passing an observer object to receive the notifications.
+            -> An Observable instance begins publishing values only when someone subscribes to it. You subscribe by calling the <a href="https://angular.io/guide/observables#subscribing" target="_blank">subscribe()</a>  method of the instance, passing an observer object to receive the notifications.
             <br>
             <code>
             this.firstObsSubscription = customIntervalObservable.subscribe(data => &#123;<br>
@@ -80,7 +80,27 @@
         <div class="card-body">
           <h5 class="card-title">Lesson  172. Errors & Completion </h5>
           <p class="card-text"> The error observable method can be used to handler the error during the subscription, for example: </p>
-          <p class="card-text"> <code></code></p>
+          <p class="card-text"> <code> ngOnInit()  &#123;<br>
+    const customIntervalObservable = new Observable(observer =>  &#123;<br>
+            let count = 0;<br>
+            setInterval( () =>  &#123;<br>
+            observer.next(count);<br>
+            count++;<br>
+            if(count > 3)  &#123; </code><br>
+            -> To emit the error message, we need to call the .error method <br>
+            <code><b>observer.error(new Error('Count is greater 3!'));</b><br>
+            }<br>
+            }, 1000);<br>
+            });<br>
+    this.firstObsSubscription = customIntervalObservable.subscribe(data =>  &#123;<br>
+            console.log(data);<br>
+            }, <b>error</b> =>  &#123;<br>
+            </code>
+            -> to handler the error we need to pass another argument to subscribe<br>
+            <code>
+            console.log(error);
+            });
+            }</code></p>
 
         </div>
       </div>
