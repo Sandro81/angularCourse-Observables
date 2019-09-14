@@ -17,4 +17,10 @@ export class AppComponent implements OnInit {
       this.userActivated = didActivate;
       });
   }
+
+  onActivate(){
+    this.userService.activatedEmitter.emit(true);
+  }
+
+
 }
