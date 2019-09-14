@@ -127,7 +127,17 @@
         <div class="card-body">
           <h5 class="card-title">Lesson 175. Subjects </h5>
           <p class="card-text"> - </p>
-          <p class="card-text"> <code>routerLink="/servers" </code></p>
+          <p class="card-text">If for example we need to show the word 'Activate' after to push a button <code>&#60;button class="btn btn-primary" (click)="onActivate()">Activate&#60;/button>
+          </code></p>
+          <p class="card-text"> To do that we need a service Like: <br>
+            <code>import &#123;EventEmitter, Injectable} from '@angular/core';<br>
+              <br>
+              @Injectable(&#123;providedIn: 'root'})<br>
+              export class UserService &#123;<br>
+              activatedEmitter = new EventEmitter&#60;boolean>();<br>
+
+              }
+            </code></p>
         </div>
       </div>
 
