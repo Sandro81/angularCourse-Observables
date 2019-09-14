@@ -154,17 +154,19 @@
               }</code><br>and in the app.component.html file, that now means that we can use ngIf here to conditionally show that paragraph as soon as user activated is true. Let's save all of that and let's navigate to that user page here and let's click activate and indeed, we see activated here.
             <br><code>&#60;p *ngIf="userActivated" >Activate!&#60;/p></code><br>This is the old approach with the event emitter and this is an approach you could use but there is a better one, a more recommended one and that new approach, the better approach uses a subject.</p>
 
-          <p class="card-text"> - </p>
+          <p class="card-text"> Now a subject is something we import from RxJS, SO you import subject from RxJS, instead of event emitter, you now create a subject here. Other than that, it's pretty similar though, it's a generic type where you define which data will eventually be emitted, in this case a boolean.
+            <br><code>
+              import &#123; Injectable} from '@angular/core';<br>
+              import &#123; Subject} from 'rxjs';<br>
 
-          new approach, the better approach uses a subject. Now a subject
+              @Injectable(&#123;providedIn: 'root'})<br>
+              export class UserService &#123;<br>
+              activatedEmitter = new Subject&#60;boolean>();<br>
 
-          is something we import from RxJS,
+              }
+            </code></p>
 
-          SO you import subject from RxJS, instead of event emitter, you now create a subject here. Other
 
-          than that, it's pretty similar though, it's a generic type where you define which data will eventually
-
-          be emitted, in this case a boolean.
         </div>
       </div>
 
