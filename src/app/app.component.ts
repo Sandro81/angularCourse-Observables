@@ -18,9 +18,7 @@ export class AppComponent implements OnInit {
       });
   }
 
-  onActivate(){
-    this.userService.activatedEmitter.emit(true);
-  }
+
 
 
 }
