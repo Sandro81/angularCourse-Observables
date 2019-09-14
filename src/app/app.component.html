@@ -144,14 +144,15 @@
             }</code><br>
             Thus far, nothing too fancy, that is a normal way of passing the data around or at least, of emitting an event across components.</p>
 
-          <p class="card-text">  Now we want to listen to that event from inside the app component and for that, we simply inject the user service here too by using that injection shortcut also where we automatically bind it to a private property named user service and I'll then add a new property here too, user activated which is false initially and in ngOnInit, we can set up a listener, we can reach out to the user service, activated emitter and subscribe to it and in there, we get our did activate, or whatever you want to call it, boolean and we'll set user, this user activated equal to did activate and therefore whenever we emit true as a value here, user activated will switch to true and in the app.component.html file, that now means that we can use ngIf here to conditionally show that paragraph as soon as user activated is true. Let's save all of that and let's navigate to that user page here and let's click activate and indeed, we see activated here.
+          <p class="card-text">  Now we want to listen to that event from inside the app component and for that, we simply inject the user service here too by using that injection shortcut also where we automatically bind it to a private property named user service and I'll then add a new property here too, user activated which is false initially and in ngOnInit, we can set up a listener, we can reach out to the user service, activated emitter and subscribe to it and in there, we get our did activate, or whatever you want to call it, boolean and we'll set user, this user activated equal to did activate and therefore whenever we emit true as a value here, user activated will switch to true
             <br> <code>constructor(private userService: UserService) &#123;} <br>
               <br>
               ngOnInit() &#123;<br>
               this.userService.activatedEmitter.subscribe( didActivate => &#123;<br>
               this.userActivated = didActivate;<br>
               });<br>
-              }</code></p>
+              }</code><br>and in the app.component.html file, that now means that we can use ngIf here to conditionally show that paragraph as soon as user activated is true. Let's save all of that and let's navigate to that user page here and let's click activate and indeed, we see activated here.
+            <br></p>
 
         </div>
       </div>
