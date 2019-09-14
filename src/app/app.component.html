@@ -137,7 +137,11 @@
               activatedEmitter = new EventEmitter&#60;boolean>();<br>
 
               }
-            </code></p>
+            </code><br>
+          and into the user.components.ts <br>
+          <code>  onActivate()&#123;<br>
+            this.userService.activatedEmitter.emit(true);<br>
+            }</code><br></p>
         </div>
       </div>
 
